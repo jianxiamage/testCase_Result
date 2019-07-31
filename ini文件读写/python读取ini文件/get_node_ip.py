@@ -8,15 +8,17 @@ import ConfigParser
 
 from get_GroupNum import *
 
-#getGroupNumByName
-ip_list_path='/data/ip_list.ini'
-def getResult(TestCase,NodeNum):
+ResultPath='/data/'
+IPListIniFile='ip_list.ini'
 
+def getResult(TestType,Platform,TestCase,NodeNum):
+
+    ip_list_path = ResultPath + str(TestType) + '/' + str(Platform) + '/' + IPListIniFile
     config = ConfigParser.ConfigParser()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ip_list_path))
-    Group_num=getGroupNumByName(TestCase)
+    Group_num=getGroupNumByName(TestType,TestCase)
     tmp='获取的小组编号:' + Group_num
     #print tmp
     sectionName='Group'+ str(Group_num)
@@ -30,11 +32,13 @@ if __name__=='__main__':
 
   try:
   
-      test_case = sys.argv[1]
-      node_num = sys.argv[2]
+      test_case_type = sys.argv[1]
+      test_case_platform = sys.argv[2]
+      test_case = sys.argv[3]
+      node_num = sys.argv[4]
       
       #a = config.get(sectionName,valName)
-      result_code=getResult(test_case,node_num)
+      result_code=getResult(test_case_type,test_case_platform,test_case,node_num)
       retCode=result_code
       print retCode
   

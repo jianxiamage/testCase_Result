@@ -15,25 +15,29 @@ errfile='err_file.txt'
 #items_count=3
 #--------------------------------------------
 
-if [ $# -ne 2 ];then
-   echo "usage: $0 TestCase Platform"
+if [ $# -ne 3 ];then
+   echo "usage: $0 TestType Platform TestCase" 
    exit 0
 fi
 
-TestCase="$1"
+TestType="$1"
 Platform="$2"
+TestCase="$3"
 
 #--------------------------------------------
-ipList_stressappFile='ipList_stressapp.txt'
-tmpipList_stressappFile="${ipList_stressappFile}.tmp"
+ipList_TestCase_File="ipList_${TestCase}.txt"
+tmpipList_TestCase_File="${ipList_TestCase_File}.tmp"
 #--------------------------------------------
 
 #testcaseDir="7A"
-testcaseDir=$Platform
+testcaseDir="${TestType}/${Platform}"
 
 mkdir -p $testcaseDir
-testcase_ip_path="$testcaseDir/$ipList_stressappFile"
-testcase_ip_path_tmp="$testcaseDir/$tmpipList_stressappFile"
+testcase_ip_path="$testcaseDir/$ipList_TestCase_File"
+testcase_ip_path_tmp="$testcaseDir/$tmpipList_TestCase_File"
+
+#每次执行程序，都把之前生成的ip列表文件删除,重新生成一次，方便ip改变后，及时更新
+rm -rf $testcase_ip_path
 
 function writeIPFile()
 {
@@ -49,13 +53,13 @@ function writeIPFile()
    #count_items=`python get_node_count.py $opt_name`
 
    #count_items=`python -c "import get_node_count;get_node_count.getSectionCount($opt_name)"`
-   count_items=$(python -c 'import get_node_count; print get_node_count.getSectionCount("'$opt_name'")')
+   count_items=$(python -c 'import get_node_count; print get_node_count.getSectionCount("'$TestType'","'$Platform'","'$opt_name'")')
    echo count_items is:$count_items 
   
    for((i=1;i<=count_items;i++));
    do
      #IP_testcase=`python get_node_ip.py $opt_name $i`
-     IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$opt_name'","'$i'")')
+     IP_testcase=$(python -c 'import get_node_ip; print get_node_ip.getResult("'$TestType'","'$Platform'","'$opt_name'","'$i'")')
      echo 第[$i]个ip:$IP_testcase
      echo $IP_testcase  >>  $testcase_ip_path
    done
@@ -86,7 +90,7 @@ check_result()
         echo [$host] update state OK.
         opt_value=0
         #setResult
-        python -c 'import set_test_result; set_test_result.setResult("'$TestName'","'$i'","'$opt_value'")'
+        python -c 'import set_test_result; set_test_result.setResult("'$TestType'","'$Platform'","'$TestName'","'$i'","'$opt_value'")'
 
     done < $testcase_ip_path_tmp
 

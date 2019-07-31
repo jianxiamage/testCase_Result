@@ -5,8 +5,12 @@ import sys  #引入模块
 import traceback
 import ConfigParser
 
-TestcaseGroupPath='/data/TestcaseGroup.ini'
-def getGroupNumByName(keyName):
+
+TestcasePath='/data/'
+GroupIniFile='TestcaseGroup.ini'
+def getGroupNumByName(TestType,keyName):
+
+    TestcaseGroupPath = TestcasePath + str(TestType) +  '/' + GroupIniFile
     config = ConfigParser.ConfigParser()
     config.readfp(open(TestcaseGroupPath))
     sectionName='GroupNum'
@@ -18,10 +22,11 @@ if __name__=='__main__':
 
   try:
   
-      testCase = sys.argv[1]
+      test_type = sys.argv[1]
+      test_case = sys.argv[2]
       
       #a = config.get(sectionName,valName)
-      GroupNum=getGroupNumByName(testCase)
+      GroupNum=getGroupNumByName(test_type,test_case)
       retCode=GroupNum
       print retCode
   

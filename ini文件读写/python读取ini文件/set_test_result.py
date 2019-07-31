@@ -8,15 +8,22 @@ import ConfigParser
 
 from get_GroupNum import *
 
-#getGroupNumByName
-ResultIniPath='/data/TestResults.ini'
-def setResult(TestCase,NodeNum,keyValue):
+
+ResultPath='/data/'
+ResultIniFile='TestResults.ini'
+
+def setResult(TestType,Platform,TestCase,NodeNum,keyValue):
+    
+    ResultIniPath=ResultPath + str(TestType) + '/' + str(Platform) + '/' + ResultIniFile
 
     config = ConfigParser.ConfigParser()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
-    Group_num=getGroupNumByName(TestCase)
+    
+    #根据测试用例名称找出其对应小组编号
+    Group_num=getGroupNumByName(TestType,TestCase)
+
     sectionName='Group'+ str(Group_num)
     keyName='ip_'+ str(NodeNum)
     resultStr=config.get(sectionName,keyName)
@@ -36,12 +43,14 @@ if __name__=='__main__':
 
   try:
   
-      test_case = sys.argv[1]
-      node_num = sys.argv[2]
-      test_retcode = sys.argv[3]
+      test_case_type = sys.argv[1]
+      test_case_platform = sys.argv[2]
+      test_case = sys.argv[3]
+      node_num = sys.argv[4]
+      test_retcode = sys.argv[5]
       
       #a = config.get(sectionName,valName)
-      setResult(test_case,node_num,test_retcode)
+      setResult(test_case_type,test_case_platform,test_case,node_num,test_retcode)
   
   except Exception as E:
       #print('str(Exception):', str(Exception))
