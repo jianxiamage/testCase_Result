@@ -8,7 +8,7 @@ import ConfigParser
 
 from get_GroupNum import *
 
-ResultPath='/data/'
+ResultPath='/IPList/'
 IPListIniFile='ip_list.ini'
 
 def getSectionCount(TestType,Platform,TestCase):

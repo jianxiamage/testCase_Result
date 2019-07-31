@@ -5,7 +5,6 @@ import sys  #引入模块
 import traceback
 import ConfigParser
 
-
 TestcasePath='/data/'
 GroupIniFile='TestcaseGroup.ini'
 def getGroupNumByName(TestType,keyName):

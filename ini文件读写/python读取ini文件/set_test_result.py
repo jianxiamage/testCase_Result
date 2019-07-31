@@ -22,10 +22,11 @@ def setResult(TestType,Platform,TestCase,NodeNum,keyValue):
     config.readfp(open(ResultIniPath))
     
     #根据测试用例名称找出其对应小组编号
-    Group_num=getGroupNumByName(TestType,TestCase)
+    #Group_num=getGroupNumByName(TestType,TestCase)
 
-    sectionName='Group'+ str(Group_num)
-    keyName='ip_'+ str(NodeNum)
+    #sectionName='Group'+ str(Group_num)
+    sectionName = str(TestCase)
+    keyName = 'node_'+ str(NodeNum)
     resultStr=config.get(sectionName,keyName)
     tmp='The old value is:'+resultStr
     #print tmp
@@ -47,10 +48,10 @@ if __name__=='__main__':
       test_case_platform = sys.argv[2]
       test_case = sys.argv[3]
       node_num = sys.argv[4]
-      test_retcode = sys.argv[5]
+      test_value = sys.argv[5]
       
       #a = config.get(sectionName,valName)
-      setResult(test_case_type,test_case_platform,test_case,node_num,test_retcode)
+      setResult(test_case_type,test_case_platform,test_case,node_num,test_value)
   
   except Exception as E:
       #print('str(Exception):', str(Exception))
