@@ -8,43 +8,33 @@ import ConfigParser
 
 from get_GroupNum import *
 
-
-ResultPath='/data/'
-ResultIniFile='TestResults.ini'
-
-def getResult(TestType,Platform,TestCase,NodeNum):
-    
-    ResultIniPath=ResultPath + str(TestType) + '/' + str(Platform) + '/' + ResultIniFile
+#getGroupNumByName
+ResultIniPath='/data/TestResults.ini'
+def getResult(TestCase,NodeNum):
 
     config = ConfigParser.ConfigParser()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
-    
-    #根据测试用例名称找出其对应小组编号
-    #Group_num=getGroupNumByName(TestType,TestCase)
-
-    #sectionName='Group'+ str(Group_num)
-    sectionName = str(TestCase)
-    keyName = 'node_'+ str(NodeNum)
+    Group_num=getGroupNumByName(TestCase)
+    sectionName='Group'+ str(Group_num)
+    keyName='ip_'+ str(NodeNum)
     resultStr=config.get(sectionName,keyName)
     retCode=int(resultStr)
-    print retCode
     return retCode
-
 
 
 if __name__=='__main__':
 
   try:
   
-      test_case_type = sys.argv[1]
-      test_case_platform = sys.argv[2]
-      test_case = sys.argv[3]
-      node_num = sys.argv[4]
+      test_case = sys.argv[1]
+      node_num = sys.argv[2]
       
       #a = config.get(sectionName,valName)
-      getResult(test_case_type,test_case_platform,test_case,node_num)
+      result_code=getResult(test_case,node_num)
+      retCode=result_code
+      print retCode
   
   except Exception as E:
       #print('str(Exception):', str(Exception))

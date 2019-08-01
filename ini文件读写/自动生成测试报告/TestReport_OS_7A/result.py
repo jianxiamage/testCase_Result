@@ -15,6 +15,12 @@ import time
 from testcase.test_hello import TestHello
 from testcase.test_stressapp import TestStressapp
 
+#初始化操作:
+cur_path = os.getcwd()
+print(cur_path)
+
+print('---------------------------------------------------------------------------------------------------')
+
 test_cases = (TestHello,TestStressapp)
 # 用例路径
 case_path = os.path.join(os.getcwd(),'testcase')
