@@ -1,12 +1,11 @@
 #!/bin/bash
 
-#/data/TestResults.ini
 
-srcGroupFile='TestcaseGroup.ini'
+srcGroupFile=''
 
 ResultPath='/data'
 GroupIniFile=$srcGroupFile
-echo copy the file:$GroupIniFile to dest Dir
+echo copy the [GroupIniFile] to dest Dir
 
 destPath=''
 
@@ -18,17 +17,18 @@ TestType=("OS" "Kernel" "KVM")
 
 for item_type in ${TestType[@]}; do
 
-  #echo $item_type
-  echo ----------------------------------------------------
+    echo ----------------------------------------------------
 
     #echo 当前平台:$item_plat
     
     destPath="${ResultPath}/${item_type}"
     mkdir $destPath -p
-    destGroupFile="${ResultPath}/${item_type}/${srcGroupFile}"
+    destGroupFile="${ResultPath}/${item_type}/"
     echo destGroupFile:$destGroupFile
  
-    #\cp $srcGroupFile $destGroupFile -f
+    srcGroupFile="TestcaseGroup_${item_type}.ini"
+    echo the srcGroupFile is:$srcGroupFile
+    \cp $srcGroupFile $destGroupFile -f
 
 
 done

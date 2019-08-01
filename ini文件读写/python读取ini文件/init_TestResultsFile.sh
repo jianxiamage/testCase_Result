@@ -5,7 +5,7 @@
 srcResultFile='TestResults.ini'
 IPListFile='ip_list.ini'
 
-ResultPath='/data123'
+ResultPath='/data'
 ResultIniFile=$srcResultFile
 echo srcFile:$ResultIniFile
 

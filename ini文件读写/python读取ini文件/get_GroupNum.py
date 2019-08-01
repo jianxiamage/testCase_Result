@@ -6,9 +6,9 @@ import traceback
 import ConfigParser
 
 TestcasePath='/data/'
-GroupIniFile='TestcaseGroup.ini'
 def getGroupNumByName(TestType,keyName):
 
+    GroupIniFile='TestcaseGroup_' + TestType +'.ini'
     TestcaseGroupPath = TestcasePath + str(TestType) +  '/' + GroupIniFile
     config = ConfigParser.ConfigParser()
     config.readfp(open(TestcaseGroupPath))
