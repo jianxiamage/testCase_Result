@@ -5,9 +5,9 @@ import unittest
 
 from get_test_result import *
 
-class stressapp(unittest.TestCase):
+class ltpstress(unittest.TestCase):
     
-    case_name='stressapp'
+    case_name='ltpstress'
 
     def setUp(self):
         print 'setUp...'

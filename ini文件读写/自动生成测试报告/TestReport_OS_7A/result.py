@@ -12,8 +12,13 @@ import unittest
 from ExtentHTMLTestRunner import HTMLTestRunner
 import time
 
-from testcase.test_hello import TestHello
-from testcase.test_stressapp import TestStressapp
+#from testcase.test_hello import TestHello
+from testcase.test_stressapp import stressapp
+from testcase.test_ltpstress import ltpstress
+from testcase.test_spec2000_1core import spec2000_1core
+from testcase.test_spec2000_ncore import spec2000_ncore
+from testcase.test_spec2006_1core import spec2006_1core
+from testcase.test_spec2006_ncore import spec2006_ncore
 
 #初始化操作:
 cur_path = os.getcwd()
@@ -36,7 +41,7 @@ if __name__ == "__main__":
     #报告存放位置以及名称
     report_path = os.path.join(os.getcwd(),"report.html")
     fp=file(report_path,"w+")
-    runner=HTMLTestRunner(stream=fp,title="Loongnix Automation Test",description="用例测试情况",verbosity=1)
+    runner=HTMLTestRunner(stream=fp,title="Loongnix Automation Test",description="用例测试情况",verbosity=2)
     runner.run(all_case())
 
 
