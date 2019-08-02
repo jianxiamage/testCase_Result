@@ -95,12 +95,12 @@
         <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
             <li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Start_time: 2019-07-30 13:54:42</span>
+                    <span class='label suite-start-time blue darken-3'>Start_time: 2019-08-02 09:16:19</span>
                 </a>
             </li>
             <li>
                 <a href='#!'>
-                    <span class='label blue darken-3'>Duration: 0:00:00.017227 </span>
+                    <span class='label blue darken-3'>Duration: 0:00:00.005494 </span>
                 </a>
             </li>
         </ul>
@@ -197,13 +197,13 @@
                             </div>
                             <div class='block text-small'>
                             <span class='tooltipped' data-position='top'><span
-                                    class='strong'>4</span> test(s) passed</span>
+                                    class='strong'>2</span> test(s) passed</span>
                                 <span class='tooltipped' data-position='top'><span
-                                        class='strong'>1</span> test(s) failed</span>
+                                        class='strong'>0</span> test(s) failed</span>
                             </div>
                             <div class='block text-small'>
                             <span class='strong tooltipped' data-position='top'
-                            >0</span>
+                            >3</span>
                                 test(s) errored
                             </div>
                         </div>
@@ -343,16 +343,16 @@
         </ul>
     </div>
     
-    <li class="test displayed active has-leaf fail" status="fail" bdd="false" test-id="test_stressapp.TestStressapp_2">
+    <li class="test displayed active has-leaf error" status="error" bdd="error" test-id="test_stressapp.TestStressapp_2">
     <div class='test-heading'>
         <span class='test-name'>test_stressapp.TestStressapp</span>
         <span class='test-time'>desc:  </span>
-        <span class="test-status right fail">fail</span>
+        <span class="test-status right error">error</span>
     </div>
     <div class='test-content hide'>
-        <div class='test-desc'>Pass: 2 ;
-                                Fail: 1 ;
-                                Error: 0 ;
+        <div class='test-desc'>Pass: 0 ;
+                                Fail: 0 ;
+                                Error: 3 ;
         </div>
         <div class='test-attributes'>
             <div class='category-list'>
@@ -361,11 +361,11 @@
         </div>
         <ul class='collapsible node-list' data-collapsible='accordion'>
             
-            <li class="node level-1 leaf pass" status="pass" test-id="test_Stressapp_Node1_pt2.1_2">
+            <li class="node level-1 leaf error" status="error" test-id="test_Stressapp_Node1_ft2.1_2">
             <div class='collapsible-header'>
                 <div class='node-name'>test_Stressapp_Node1</div>
                 <span class='node-time'>desc: </span>
-                <span class="test-status right pass">pass</span>
+                <span class="test-status right error">error</span>
             </div>
             <div class='collapsible-body'>
                 <div class='category-list right'>
@@ -387,7 +387,7 @@
                     class='material-icons'>low_priority</i></td>
             <td class='timestamp'>stdo</td>
             <td style="white-space:pre-wrap;word-break:break-all">
-1: setUp...<br />tearDown...<br />
+1: setUp...<br />Traceback (most recent call last):<br />  File "/home/loongson/chenhaoxuan/github-20190730/testCase_Result/ini文件读写/自动生成测试报告/详细使用例子_html版本/testcase/test_stressapp.py", line 20, in test_Stressapp_Node1<br />    self.assertEqual(getResult(self.case_name,1) , 0)<br />TypeError: getResult() takes exactly 4 arguments (2 given)<br />
 </td>
         </tr>
         <tr class='info' status='info'>
@@ -404,11 +404,11 @@
              </div>
             </li>
     
-            <li class="node level-1 leaf fail" status="fail" test-id="test_Stressapp_Node2_ft2.2_2">
+            <li class="node level-1 leaf error" status="error" test-id="test_Stressapp_Node2_ft2.2_2">
             <div class='collapsible-header'>
                 <div class='node-name'>test_Stressapp_Node2</div>
                 <span class='node-time'>desc: </span>
-                <span class="test-status right fail">fail</span>
+                <span class="test-status right error">error</span>
             </div>
             <div class='collapsible-body'>
                 <div class='category-list right'>
@@ -430,7 +430,7 @@
                     class='material-icons'>low_priority</i></td>
             <td class='timestamp'>stdo</td>
             <td style="white-space:pre-wrap;word-break:break-all">
-1: setUp...<br />Traceback (most recent call last):<br />  File "/home/loongson/chenhaoxuan/我自己测试用/ini文件读写/自动生成测试报告/详细使用例子_html版本/testcase/test_stressapp.py", line 23, in test_Stressapp_Node2<br />    self.assertEqual(getResult(self.case_name,2) , 1)<br />AssertionError: 0 != 1<br />
+1: setUp...<br />Traceback (most recent call last):<br />  File "/home/loongson/chenhaoxuan/github-20190730/testCase_Result/ini文件读写/自动生成测试报告/详细使用例子_html版本/testcase/test_stressapp.py", line 23, in test_Stressapp_Node2<br />    self.assertEqual(getResult(self.case_name,2) , 1)<br />TypeError: getResult() takes exactly 4 arguments (2 given)<br />
 </td>
         </tr>
         <tr class='info' status='info'>
@@ -447,11 +447,11 @@
              </div>
             </li>
     
-            <li class="node level-1 leaf pass" status="pass" test-id="test_Stressapp_Node3_pt2.3_2">
+            <li class="node level-1 leaf error" status="error" test-id="test_Stressapp_Node3_ft2.3_2">
             <div class='collapsible-header'>
                 <div class='node-name'>test_Stressapp_Node3</div>
                 <span class='node-time'>desc: </span>
-                <span class="test-status right pass">pass</span>
+                <span class="test-status right error">error</span>
             </div>
             <div class='collapsible-body'>
                 <div class='category-list right'>
@@ -473,7 +473,7 @@
                     class='material-icons'>low_priority</i></td>
             <td class='timestamp'>stdo</td>
             <td style="white-space:pre-wrap;word-break:break-all">
-1: setUp...<br />tearDown...<br />
+1: setUp...<br />Traceback (most recent call last):<br />  File "/home/loongson/chenhaoxuan/github-20190730/testCase_Result/ini文件读写/自动生成测试报告/详细使用例子_html版本/testcase/test_stressapp.py", line 26, in test_Stressapp_Node3<br />    self.assertEqual(getResult(self.case_name,3) , 0)<br />TypeError: getResult() takes exactly 4 arguments (2 given)<br />
 </td>
         </tr>
         <tr class='info' status='info'>
@@ -553,15 +553,15 @@
                         <div class='category-heading'>
                             <span class='category-name'>All Suites</span>
                             <span class='category-status right'>
-                                <span class='label pass'>4 </span>
-                                <span class='label fail'>1</span>
+                                <span class='label pass'>2 </span>
+                                <span class='label fail'>0</span>
                             </span>
                         </div>
                         <div class='category-content hide'>
                             <div class='category-status-counts'>
-                                <span class='label green accent-4 white-text'>Passed: 4</span>
-                                <span class='label red lighten-1 white-text'>Failed: 1</span>
-                                <span class='label blue lighten-1 white-text'>Errored: 0</span>
+                                <span class='label green accent-4 white-text'>Passed: 2</span>
+                                <span class='label red lighten-1 white-text'>Failed: 0</span>
+                                <span class='label blue lighten-1 white-text'>Errored: 3</span>
                                 <span class="label yellow darken-2 white-text">Skipped: </span>
                             </div>
 
@@ -575,13 +575,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    ['\n    <tr style="border: 1px solid #49cc90; background-color: rgba(73, 204, 144, .1)">\n        <td>2019-07-30 13:54:42.124773</td>\n        <td class=\'linked\' test-id=\'test_hello.TestHello_0\'>test_hello.TestHello</td>\n        <td><span class="test-status pass">pass</span></td>\n    </tr>\n    <tr>\n        <td></td>\n        <td class=\'linked\' test-id=\'\xe6\x9a\x82\xe6\x9c\xaa\xe5\xa4\x84\xe7\x90\x86\'></td>\n        <td><span class="test-status pass">pass</span></td>\n    </tr>\n        \n    ', '\n    <tr style="border: 1px solid #49cc90; background-color: rgba(73, 204, 144, .1)">\n        <td>2019-07-30 13:54:42.124773</td>\n        <td class=\'linked\' test-id=\'test_stressapp.TestStressapp_1\'>test_stressapp.TestStressapp</td>\n        <td><span class="test-status fail">fail</span></td>\n    </tr>\n    <tr>\n        <td></td>\n        <td class=\'linked\' test-id=\'\xe6\x9a\x82\xe6\x9c\xaa\xe5\xa4\x84\xe7\x90\x86\'></td>\n        <td><span class="test-status fail">fail</span></td>\n    </tr>\n        \n    ']
+                                    ['\n    <tr style="border: 1px solid #49cc90; background-color: rgba(73, 204, 144, .1)">\n        <td>2019-08-02 09:16:19.648971</td>\n        <td class=\'linked\' test-id=\'test_hello.TestHello_0\'>test_hello.TestHello</td>\n        <td><span class="test-status pass">pass</span></td>\n    </tr>\n    <tr>\n        <td></td>\n        <td class=\'linked\' test-id=\'\xe6\x9a\x82\xe6\x9c\xaa\xe5\xa4\x84\xe7\x90\x86\'></td>\n        <td><span class="test-status pass">pass</span></td>\n    </tr>\n        \n    ', '\n    <tr style="border: 1px solid #49cc90; background-color: rgba(73, 204, 144, .1)">\n        <td>2019-08-02 09:16:19.648971</td>\n        <td class=\'linked\' test-id=\'test_stressapp.TestStressapp_1\'>test_stressapp.TestStressapp</td>\n        <td><span class="test-status error">error</span></td>\n    </tr>\n    <tr>\n        <td></td>\n        <td class=\'linked\' test-id=\'\xe6\x9a\x82\xe6\x9c\xaa\xe5\xa4\x84\xe7\x90\x86\'></td>\n        <td><span class="test-status error">error</span></td>\n    </tr>\n        \n    ']
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </li>
-                    ["\n    <li class='category displayed active'>\n        <div class='category-heading'>\n            <span class='category-name'>test_hello.TestHello</span>\n            <span class='category-status right'>\n                <span class='label pass'>2 </span>\n                <span class='label fail'>0</span>\n            </span>\n        </div>\n        <div class='category-content hide'>\n            <div class='category-status-counts'>\n                <span class='label green accent-4 white-text'>Passed: 2</span>\n                <span class='label red lighten-1 white-text'>Failed: 0</span>\n                <span class='label blue lighten-1 white-text'>Errored: 0</span>\n            </div>\n\n            <div class='category-tests'>\n                <table class='bordered table-results'>\n                    <thead>\n                    <tr>\n                        <th>Timestamp</th>\n                        <th>TestName</th>\n                        <th>Status</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    \n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </li>\n    ", "\n    <li class='category displayed active'>\n        <div class='category-heading'>\n            <span class='category-name'>test_stressapp.TestStressapp</span>\n            <span class='category-status right'>\n                <span class='label pass'>2 </span>\n                <span class='label fail'>1</span>\n            </span>\n        </div>\n        <div class='category-content hide'>\n            <div class='category-status-counts'>\n                <span class='label green accent-4 white-text'>Passed: 2</span>\n                <span class='label red lighten-1 white-text'>Failed: 1</span>\n                <span class='label blue lighten-1 white-text'>Errored: 0</span>\n            </div>\n\n            <div class='category-tests'>\n                <table class='bordered table-results'>\n                    <thead>\n                    <tr>\n                        <th>Timestamp</th>\n                        <th>TestName</th>\n                        <th>Status</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    \n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </li>\n    "]
+                    ["\n    <li class='category displayed active'>\n        <div class='category-heading'>\n            <span class='category-name'>test_hello.TestHello</span>\n            <span class='category-status right'>\n                <span class='label pass'>2 </span>\n                <span class='label fail'>0</span>\n            </span>\n        </div>\n        <div class='category-content hide'>\n            <div class='category-status-counts'>\n                <span class='label green accent-4 white-text'>Passed: 2</span>\n                <span class='label red lighten-1 white-text'>Failed: 0</span>\n                <span class='label blue lighten-1 white-text'>Errored: 0</span>\n            </div>\n\n            <div class='category-tests'>\n                <table class='bordered table-results'>\n                    <thead>\n                    <tr>\n                        <th>Timestamp</th>\n                        <th>TestName</th>\n                        <th>Status</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    \n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </li>\n    ", "\n    <li class='category displayed active'>\n        <div class='category-heading'>\n            <span class='category-name'>test_stressapp.TestStressapp</span>\n            <span class='category-status right'>\n                <span class='label pass'>0 </span>\n                <span class='label fail'>0</span>\n            </span>\n        </div>\n        <div class='category-content hide'>\n            <div class='category-status-counts'>\n                <span class='label green accent-4 white-text'>Passed: 0</span>\n                <span class='label red lighten-1 white-text'>Failed: 0</span>\n                <span class='label blue lighten-1 white-text'>Errored: 3</span>\n            </div>\n\n            <div class='category-tests'>\n                <table class='bordered table-results'>\n                    <thead>\n                    <tr>\n                        <th>Timestamp</th>\n                        <th>TestName</th>\n                        <th>Status</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    \n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </li>\n    "]
                 <div class='subview-right left'>
             <div class='view-summary'>
                 <h5 class='category-name'></h5>
@@ -602,19 +602,19 @@
                 <div class='col s2'>
                     <div class='card-panel r'>
                         Pass
-                        <div class='panel-lead'>4</div>
+                        <div class='panel-lead'>2</div>
                     </div>
                 </div>
                 <div class='col s2'>
                     <div class='card-panel r'>
                         Fail
-                        <div class='panel-lead'>1</div>
+                        <div class='panel-lead'>0</div>
                     </div>
                 </div>
                 <div class='col s2'>
                     <div class='card-panel r'>
                         Error
-                        <div class='panel-lead'>0</div>
+                        <div class='panel-lead'>3</div>
                     </div>
                 </div>
                 <div class='col s2'>
@@ -626,13 +626,13 @@
                 <div class='col s2'>
                     <div class='card-panel r'>
                         Start
-                        <div class='panel-lead'>2019-07-30 13:54:42</div>
+                        <div class='panel-lead'>2019-08-02 09:16:19</div>
                     </div>
                 </div>
                 <div class='col s2'>
                     <div class='card-panel r'>
                         Time Taken
-                        <div class='panel-lead'>0:00:00.017227 seconds</div>
+                        <div class='panel-lead'>0:00:00.005494 seconds</div>
                     </div>
                 </div>
                 <div class='col s4'>
@@ -649,9 +649,9 @@
                             </tr>
                             <tr>
                                 <td>All Suites</td>
-                                <td class="pass">4</td>
-                                <td class="fail">1</td>
-                                <td class="error">0</td>
+                                <td class="pass">2</td>
+                                <td class="fail">0</td>
+                                <td class="error">3</td>
                                 <td class="skip"></td>
                             </tr>
 
@@ -674,20 +674,20 @@
 </body>
 
     <script>
-        var test_suite_success = 4;
+        var test_suite_success = 2;
         
     
         var statusGroup = {
-            passParent: 4,
-            failParent: 1,
+            passParent: 2,
+            failParent: 0,
             fatalParent: 0,
-            errorParent: 0,
+            errorParent: 3,
             warningParent: 0,
             skipParent: 0,
             exceptionsParent: 0,
     
             passChild: test_suite_success,
-            failChild: 1,
+            failChild: 0,
             fatalChild: 0,
             errorChild: 0,
             warningChild: 0,

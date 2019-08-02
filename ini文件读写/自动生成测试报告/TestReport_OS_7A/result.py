@@ -17,14 +17,14 @@ from testcase.test_stressapp import TestStressapp
 
 #初始化操作:
 cur_path = os.getcwd()
-print(cur_path)
+#print(cur_path)
 
-print('---------------------------------------------------------------------------------------------------')
+#print('---------------------------------------------------------------------------------------------------')
 
-test_cases = (TestHello,TestStressapp)
+#test_cases = (TestHello,TestStressapp)
 # 用例路径
 case_path = os.path.join(os.getcwd(),'testcase')
-print(case_path)
+#print(case_path)
 
 def all_case():
     discover = unittest.defaultTestLoader.discover(case_path, pattern="test*.py",top_level_dir=None)

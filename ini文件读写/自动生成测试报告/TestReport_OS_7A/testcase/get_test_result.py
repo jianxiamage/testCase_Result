@@ -12,15 +12,22 @@ from get_GroupNum import *
 #ResultIniPath='/data/OS/7A/TestResults.ini'
 def getResult(TestCase,NodeNum):
 
-    config = ConfigParser.ConfigParser()
+    resultIniFile = 'testResultIni_path.txt'
+    print('********************************************')
     #print os.getcwd() #获取当前工作目录路径
-
-    retCode,output = commands.getstatusoutput('cat testResultIni_path.txt')
-    print  retCode
-    print  output
+    #print os.path.split( os.path.realpath( sys.argv[0] ) )
+    curPath = os.path.split(os.path.realpath(__file__))[0]
+    #print os.path.split(os.path.realpath(__file__))[0]
+    print('********************************************')
+    ini_resultPath = os.path.join(curPath,resultIniFile )
+    cmdInput = 'cat ' + str(ini_resultPath)
+    retCode,output = commands.getstatusoutput(cmdInput)
+    #print  retCode
+    #print  output
     
     ResultIniPath = str(output)   
 
+    config = ConfigParser.ConfigParser()
     config.readfp(open(ResultIniPath))
     #Group_num=getGroupNumByName(TestCase)
     sectionName = str(TestCase)

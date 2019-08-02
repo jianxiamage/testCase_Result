@@ -6,9 +6,9 @@ import os
 import traceback
 import ConfigParser
 
-IniPath='/data/TestResultFilePath.ini'
 def getIniPath(sectionName,keyName):
 
+    IniPath='/data/TestResultFilePath.ini'
     config = ConfigParser.ConfigParser()
     config.readfp(open(IniPath))
 
