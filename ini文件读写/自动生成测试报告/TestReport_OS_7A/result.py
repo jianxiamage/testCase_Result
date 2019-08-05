@@ -41,7 +41,7 @@ if __name__ == "__main__":
     #报告存放位置以及名称
     report_path = os.path.join(os.getcwd(),"report.html")
     fp=file(report_path,"w+")
-    runner=HTMLTestRunner(stream=fp,title="Loongnix Automation Test",description="用例测试情况",verbosity=2)
+    runner=HTMLTestRunner(stream=fp,title="Loongnix Automation Test",description="用例测试情况",verbosity=1)
     runner.run(all_case())
 
 
