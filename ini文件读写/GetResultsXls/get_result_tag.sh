@@ -67,6 +67,52 @@ function writeIPFile()
 }
 
 
+function getResultFile()
+{
+
+  if [ $# -ne 4 ];then
+     echo "usage: $0 TestType Platform TestCase" 
+     exit 1
+  fi
+  
+  TestType="$1"
+  Platform="$2"
+  TestCase="$3"
+  TestHost="$4"
+  echo "获取测试结果跑分..."
+  echo "当前路径:"
+  pwd 
+  count_hosts=`ls $TestType/$Platform/$TestHost-* |wc -l`
+  if [ $count_hosts -ne 1 ];
+  then
+     echo 当前路径下存在相同机器的文件夹，不允许的操作!
+     exit 1
+  fi
+ 
+  workdir=$(cd $(dirname $0); pwd)
+ 
+  testresult_dir=`ls $workdir/$TestType/$Platform |grep $TestHost-`
+  echo testresult_dir:$testresult_dir
+  testresult_absdir=$workdir/$TestType/$Platform/$testresult_dir
+  echo 测试用例:$TestCase 的测试结果目录为:[$testresult_absdir]
+  echo --------------------------------------------------------------------------------   
+
+  testcase_dir=`ls $testresult_absdir |grep $TestCase`
+  testcase_absdir=$testresult_absdir/$testcase_dir
+  echo 测试用例:$TestCase 的测试结果文件所在目录为:[$testcase_absdir]
+  echo --------------------------------------------------------------------------------   
+
+  testcase_file=`ls $testcase_absdir`
+  #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+  echo $testcase_file
+  testcase_absfile=$testcase_absdir/$testcase_file
+  echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+  echo -------------------------------------------------------------------------------- 
+
+
+}
+
+
 #--------------------------------------------
 check_result()
 {
@@ -91,6 +137,31 @@ check_result()
 
         getResult=$(python -c 'import get_test_result; print get_test_result.getResult("'$TestType'","'$Platform'","'$TestName'","'$i'")')
         echo [$TestType $Platform $TestName $i]:$getResult
+
+        echo "-----------------------获取测试用例结果文件信息---------------------------"
+        #getResultFile $TestType $Platform $TestCase $host
+
+        workdir=$(cd $(dirname $0); pwd)
+      
+        testresult_dir=`ls $workdir/$TestType/$Platform |grep $host-`
+        echo testresult_dir:$testresult_dir
+        testresult_absdir=$workdir/$TestType/$Platform/$testresult_dir
+        echo 测试用例:$TestCase 的测试结果目录为:[$testresult_absdir]
+        echo --------------------------------------------------------------------------------   
+      
+        testcase_dir=`ls $testresult_absdir |grep $TestCase`
+        testcase_absdir=$testresult_absdir/$testcase_dir
+        echo 测试用例:$TestCase 的测试结果文件所在目录为:[$testcase_absdir]
+        echo --------------------------------------------------------------------------------   
+      
+        testcase_file=`ls $testcase_absdir | grep ^iozone_`
+        #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+        echo $testcase_file
+        testcase_absfile=$testcase_absdir/$testcase_file
+        echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+        echo -------------------------------------------------------------------------------- 
+        
+        sh makePonitsFile.sh $TestType $Platform $TestCase $testcase_absdir $testcase_absfile $i || echo 出错了，请检查
 
     done < $testcase_ip_path_tmp
 
