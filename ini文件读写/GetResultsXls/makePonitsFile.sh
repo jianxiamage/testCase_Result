@@ -128,13 +128,52 @@ case $TestCase in
     ;;
 
 "spec2006-1core")
+    echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
+    testcase_file=`ls $TestCase_absdir`
+    echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+    echo 测试用例:$TestCase 的测试结果文件内容为:
+    grep -A 19 "=====" $TestCase_absdir/CFP2006.001.txt | tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
+    grep -A 14 "=====" $TestCase_absdir/CINT2006.001.txt | tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
+
+    echo --------------------------------------------------------------------------------
+    \cp "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt" $destPath -f || echo copy failed!
+    \cp "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt" $destPath -f || echo copy failed!
+
+    testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
+    \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
+
+    testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
+    \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
+    echo --------------------------------------------------------------------------------
     ;;
 
 "spec2006-ncore")
+    echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
+    testcase_file=`ls $TestCase_absdir`
+    echo --------------------------------------------------------------------------------
+    echo 测试用例:$TestCase 的测试结果文件为
+    echo [$testcase_file]
+    echo --------------------------------------------------------------------------------
+    echo 测试用例:$TestCase 的测试结果[浮点型]文件内容为:
+    grep -A 19 "=====" $TestCase_absdir/CFP2006.002.txt | tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
+
+    echo 测试用例:$TestCase 的测试结果[整型]文件内容为:
+    grep -A 14 "=====" $TestCase_absdir/CINT2006.002.txt | tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
+
+    \cp "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt" $destPath -f || echo copy failed!
+    \cp "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt" $destPath -f || echo copy failed!
+
+    testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
+    \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
+
+    testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
+    \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
+    echo --------------------------------------------------------------------------------
+
     ;;
 
 "SpecJvm2008")
