@@ -1,10 +1,9 @@
 #!/bin/bash
 
-
-srcGroupFile='TestcaseGroup.ini'
+#尚未完成，可能已经不需要....
+srcGroupFile='.ini'
 
 ResultPath='/data'
-#GroupIniFile=$srcGroupFile
 echo copy the [$srcGroupFile] to dest Dir
 
 destPath=''
@@ -23,12 +22,12 @@ for item_type in ${TestType[@]}; do
     
     destPath="${ResultPath}/${item_type}"
     mkdir $destPath -p
-    destGroupFile="${ResultPath}/${item_type}/"
-    echo destGroupFile:$destGroupFile
+    destPointsFile="${ResultPath}/${item_type}/"
+    echo destPointsFile:$destPointsFile
  
     srcGroupFile="TestcaseGroup_${item_type}.ini"
     echo the srcGroupFile is:$srcGroupFile
-    \cp $srcGroupFile $destGroupFile -f
+    \cp $srcGroupFile $destPointsFile -f
     let i++
     
 

@@ -90,7 +90,7 @@ check_result()
         echo [$host] update state OK.
         opt_value=0
         #getResult
-        getResult=$(python -c 'import set_test_result; print set_test_result.getResult("'$TestType'","'$Platform'","'$TestName'","'$i'")')
+        getResult=$(python -c 'import get_test_result; print get_test_result.getResult("'$TestType'","'$Platform'","'$TestName'","'$i'")')
         echo [$TestType $Platform $TestName $i]:$getResult
 
     done < $testcase_ip_path_tmp

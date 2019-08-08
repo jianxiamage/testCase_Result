@@ -32,7 +32,8 @@ tmpipList_TestCase_File="${ipList_TestCase_File}.tmp"
 #testcaseDir="7A"
 testcaseDir="${TestType}/${Platform}"
 
-mkdir -p $testcaseDir
+rm -rf $testcaseDir/$TestCase
+mkdir -p $testcaseDir/$TestCase
 testcase_ip_path="$testcaseDir/$ipList_TestCase_File"
 testcase_ip_path_tmp="$testcaseDir/$tmpipList_TestCase_File"
 
@@ -132,7 +133,7 @@ check_result()
     do
         echo "--------------------------------------------------------"
         let i++
-        sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r $ServerUser@$ServerIP:~/$ServerTestDir/$TestName/$host-* ${testcaseDir} || { echo 'Error!'; continue; }
+        sshpass -p $ServerPass scp -o StrictHostKeychecking=no -r $ServerUser@$ServerIP:~/$ServerTestDir/$TestName/$host-* ${testcaseDir}/${TestName} || { echo 'Error!'; continue; }
         echo get [$host] state OK.
 
         getResult=$(python -c 'import get_test_result; print get_test_result.getResult("'$TestType'","'$Platform'","'$TestName'","'$i'")')
@@ -142,26 +143,45 @@ check_result()
         #getResultFile $TestType $Platform $TestCase $host
 
         workdir=$(cd $(dirname $0); pwd)
-      
-        testresult_dir=`ls $workdir/$TestType/$Platform |grep $host-`
+        pwd
+        echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        ls $workdir/$TestType/$Platform/$TestName
+        echo "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+        hostDirCount=`ls $workdir/$TestType/$Platform/$TestName |grep $host- |wc -l`
+        echo ============The number of directories currently containing IP:$host is:$hostDirCount
+        if [ $hostDirCount -ne 1 ];
+        then
+           echo "Error,more than 1 ip dir existed!Please check it!"
+           echo "There must be only 1 ip dir."
+           echo "-----------------------------------------"
+           echo "Please check the ip dirs:"
+           ls $workdir/$TestType/$Platform/$TestName |grep $host-
+           echo "-----------------------------------------"
+           exit 1
+        fi
+
+        testresult_dir=`ls $workdir/$TestType/$Platform/$TestName |grep $host-`
         echo testresult_dir:$testresult_dir
-        testresult_absdir=$workdir/$TestType/$Platform/$testresult_dir
+        testresult_absdir=$workdir/$TestType/$Platform/$TestName/$testresult_dir
         echo 测试用例:$TestCase 的测试结果目录为:[$testresult_absdir]
         echo --------------------------------------------------------------------------------   
       
-        testcase_dir=`ls $testresult_absdir |grep $TestCase`
+        #testcase_dir=`ls $testresult_absdir |grep $TestName` #因为服务器上这个目录规则不统一，无法根据名称进行筛选???
+        testcase_dir=`ls $testresult_absdir`
         testcase_absdir=$testresult_absdir/$testcase_dir
         echo 测试用例:$TestCase 的测试结果文件所在目录为:[$testcase_absdir]
         echo --------------------------------------------------------------------------------   
       
-        testcase_file=`ls $testcase_absdir | grep ^iozone_`
-        #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
-        echo $testcase_file
-        testcase_absfile=$testcase_absdir/$testcase_file
-        echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
-        echo -------------------------------------------------------------------------------- 
+#        testcase_file=`ls $testcase_absdir | grep ^$TestName`
+#        #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+#        echo $testcase_file
+#        testcase_absfile=$testcase_absdir/$testcase_file
+#        echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+#        echo -------------------------------------------------------------------------------- 
         
-        sh makePonitsFile.sh $TestType $Platform $TestCase $testcase_absdir $testcase_absfile $i || echo 出错了，请检查
+        #sh makePonitsFile.sh $TestType $Platform $TestCase $testcase_absdir $testcase_absfile $i || echo 出错了，请检查
+        sh makePonitsFile.sh $TestType $Platform $TestCase $testcase_absdir $i || echo 出错了，请检查
 
     done < $testcase_ip_path_tmp
 
