@@ -95,7 +95,9 @@ function getResultFile()
   testresult_dir=`ls $workdir/$TestType/$Platform |grep $TestHost-`
   echo testresult_dir:$testresult_dir
   testresult_absdir=$workdir/$TestType/$Platform/$testresult_dir
-  echo 测试用例:$TestCase 的测试结果目录为:[$testresult_absdir]
+  echo --------------------------------------------------------------------------------   
+  echo 测试用例:$TestCase 的测试结果目录为:
+  echo [$testresult_absdir]
   echo --------------------------------------------------------------------------------   
 
   testcase_dir=`ls $testresult_absdir |grep $TestCase`
@@ -107,7 +109,9 @@ function getResultFile()
   #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
   echo $testcase_file
   testcase_absfile=$testcase_absdir/$testcase_file
-  echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+  echo --------------------------------------------------------------------------------   
+  echo 测试用例:$TestCase 的测试结果文件为:
+  echo [$testcase_absfile]
   echo -------------------------------------------------------------------------------- 
 
 
@@ -164,7 +168,9 @@ check_result()
         testresult_dir=`ls $workdir/$TestType/$Platform/$TestName |grep $host-`
         echo testresult_dir:$testresult_dir
         testresult_absdir=$workdir/$TestType/$Platform/$TestName/$testresult_dir
-        echo 测试用例:$TestCase 的测试结果目录为:[$testresult_absdir]
+        echo --------------------------------------------------------------------------------   
+        echo 测试用例:$TestCase 的测试结果目录为:
+        echo [$testresult_absdir]
         echo --------------------------------------------------------------------------------   
       
         #testcase_dir=`ls $testresult_absdir |grep $TestName` #因为服务器上这个目录规则不统一，无法根据名称进行筛选???

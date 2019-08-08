@@ -24,9 +24,10 @@ echo "当前路径:"
 pwd 
 echo --------------------------------------------------------------------------------
 
-#------------------------------------------------------------------------------------
 echo --------------------------------------------------------------------------------
-echo ================================================TestCase_absdir :$TestCase_absdir
+echo ================TestCase_absdir:=================
+echo $TestCase_absdir
+echo --------------------------------------------------------------------------------
 testcase_file=`ls $TestCase_absdir`
 #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
 echo $testcase_file
@@ -34,7 +35,6 @@ echo $testcase_file
 #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
 
 echo --------------------------------------------------------------------------------
-#------------------------------------------------------------------------------------
 
 destPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath"
 mkdir $destPath -p
@@ -53,6 +53,7 @@ case $TestCase in
     echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
     echo 测试用例:$TestCase 的测试结果文件内容为:
     cat $testcase_absfile |tail -n 5 |tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
+    echo --------------------------------------------------------------------------------
     \cp "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt" $destPath -f || echo copy failed!
     testcase_pointsFile=$curPointsIniDir/$TestCase.ini
     \cp $testcase_pointsFile $destPath/${TestCase}_${Node_num}.ini -f
@@ -89,14 +90,15 @@ case $TestCase in
     grep -A 16 "=====" $TestCase_absdir/CFP2000.001.asc |tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
     grep -A 14 "=====" $TestCase_absdir/CINT2000.001.asc |tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
 
+    echo --------------------------------------------------------------------------------
     \cp "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt" $destPath -f || echo copy failed!
     \cp "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt" $destPath -f || echo copy failed!
 
     testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
-    \cp $testcase_pointsFile_CFP $destPath/${TestCase}_${Node_num}_CFP.ini -f
+    \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
 
     testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
-    \cp $testcase_pointsFile_CINT $destPath/${TestCase}_${Node_num}_CINT.ini -f
+    \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
     echo --------------------------------------------------------------------------------
     ;;
 
@@ -105,7 +107,10 @@ case $TestCase in
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
     testcase_file=`ls $TestCase_absdir`
-    echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+    echo --------------------------------------------------------------------------------
+    echo 测试用例:$TestCase 的测试结果文件为
+    echo [$testcase_file]
+    echo --------------------------------------------------------------------------------
     echo 测试用例:$TestCase 的测试结果文件内容为:
     grep -A 16 "=====" $TestCase_absdir/CFP2000.002.asc |tee "$TestCase_absdir/Points_${TestCase}_CFP_${Node_num}.txt"
     grep -A 14 "=====" $TestCase_absdir/CINT2000.002.asc |tee "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt"
@@ -114,10 +119,10 @@ case $TestCase in
     \cp "$TestCase_absdir/Points_${TestCase}_CINT_${Node_num}.txt" $destPath -f || echo copy failed!
 
     testcase_pointsFile_CFP="$curPointsIniDir/${TestCase}_CFP.ini"
-    \cp $testcase_pointsFile_CFP $destPath/${TestCase}_${Node_num}_CFP.ini -f
+    \cp $testcase_pointsFile_CFP $destPath/${TestCase}_CFP_${Node_num}.ini -f
 
     testcase_pointsFile_CINT="$curPointsIniDir/${TestCase}_CINT.ini"
-    \cp $testcase_pointsFile_CINT $destPath/${TestCase}_${Node_num}_CINT.ini -f
+    \cp $testcase_pointsFile_CINT $destPath/${TestCase}_CINT_${Node_num}.ini -f
     echo --------------------------------------------------------------------------------
 
     ;;

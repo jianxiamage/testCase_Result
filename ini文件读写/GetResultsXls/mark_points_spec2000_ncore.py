@@ -6,14 +6,29 @@ import os
 import traceback
 import ConfigParser
 
-
+#-------------------------------------------------
+#存在一个测试项含有多个测试结果文件的情况
+#例如spec2000测试，无论单核测试还是多核测试均含有浮点和整型两种文件
+#因此，相比只生成一个结果文件的测试项(例如iozone)要多加一个类型参数
+#-------------------------------------------------
 ResultPath='/data/'
 PointsPath='Points_Files'
-sectionName='EXT3 File System'
+#global sectionName
+#sectionName='spec2000-ncore-'
 
-def setPoint(TestType,Platform,TestCase,NodeNum,keyName,keyValue):
+def setPoint(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
     
-    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(NodeNum) + '.ini'
+    sectionName='spec2000-ncore-'
+    if mode == 'CFP':            
+        sectionName = str(sectionName) + 'CFP'
+    elif mode == 'CINT':
+        sectionName = str(sectionName) + 'CINT'
+    else:
+        print 'not support the mode'
+        return 1
+     
+    ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(mode) + '_' + str(NodeNum) + '.ini'
+
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
@@ -49,9 +64,10 @@ if __name__=='__main__':
       node_num = sys.argv[4]
       test_key = sys.argv[5]
       test_value = sys.argv[6]
+      test_mode = sys.argv[7]
       
       #a = config.get(sectionName,valName)
-      setPoint(test_case_type,test_case_platform,test_case,node_num,test_key,test_value)
+      setPoint(test_case_type,test_case_platform,test_case,node_num,test_key,test_value,test_mode)
   
   except Exception as E:
       #print('str(Exception):', str(Exception))
