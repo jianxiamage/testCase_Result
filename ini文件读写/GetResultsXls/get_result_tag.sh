@@ -108,8 +108,8 @@ function getResultFile()
   echo --------------------------------------------------------------------------------   
 
   testcase_file=`ls $testcase_absdir`
-  #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
-  echo $testcase_file
+  echo 测试用例:$TestCase 的测试结果文件为:
+  echo [$testcase_file]
   testcase_absfile=$testcase_absdir/$testcase_file
   echo --------------------------------------------------------------------------------   
   echo 测试用例:$TestCase 的测试结果文件为:

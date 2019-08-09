@@ -66,8 +66,22 @@ case $TestCase in
     ;;
 
 "lmbench")
+    echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
+    testcase_file=`ls $TestCase_absdir`
+    #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+    echo $testcase_file
+    testcase_absfile=$TestCase_absdir/$testcase_file
+    echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+    echo 测试用例:$TestCase 的测试结果文件内容为:
+    #cat $testcase_absfile |tail -n 5 |tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
+    sed -n '/Processor/,$ p' $testcase_absfile | tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
+    echo --------------------------------------------------------------------------------
+    \cp "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt" $destPath -f || echo copy failed!
+    testcase_pointsFile=$curPointsIniDir/$TestCase.ini
+    \cp $testcase_pointsFile $destPath/${TestCase}_${Node_num}.ini -f
+    echo --------------------------------------------------------------------------------
     ;;
 
 "stream")
@@ -196,8 +210,22 @@ case $TestCase in
     ;;
 
 "SpecJvm2008")
+    echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
+    testcase_file=`ls $TestCase_absdir`
+    #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+    echo $testcase_file
+    testcase_absfile=$TestCase_absdir/$testcase_file
+    echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+    echo 测试用例:$TestCase 的测试结果文件内容为:
+    grep -A 16 "Run is compliant" $TestCase_absdir/SPECjvm2008*.txt | tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
+    echo --------------------------------------------------------------------------------
+    \cp "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt" $destPath -f || echo copy failed!
+    testcase_pointsFile=$curPointsIniDir/$TestCase.ini
+    \cp $testcase_pointsFile $destPath/${TestCase}_${Node_num}.ini -f
+    echo --------------------------------------------------------------------------------
+
     ;;
 
 
