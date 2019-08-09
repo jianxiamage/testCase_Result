@@ -36,7 +36,7 @@ then
   exit 1
 fi
 
-#读取iozone测试结果跑分情况，并记录在相应的配置文件中
+#读取测试结果跑分情况，并记录在相应的配置文件中
 
 function get_168_wupwise()
 {

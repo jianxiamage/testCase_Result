@@ -102,7 +102,9 @@ function getResultFile()
 
   testcase_dir=`ls $testresult_absdir |grep $TestCase`
   testcase_absdir=$testresult_absdir/$testcase_dir
-  echo 测试用例:$TestCase 的测试结果文件所在目录为:[$testcase_absdir]
+  echo --------------------------------------------------------------------------------   
+  echo 测试用例:$TestCase 的测试结果文件所在目录为
+  echo [$testcase_absdir]
   echo --------------------------------------------------------------------------------   
 
   testcase_file=`ls $testcase_absdir`
@@ -176,7 +178,9 @@ check_result()
         #testcase_dir=`ls $testresult_absdir |grep $TestName` #因为服务器上这个目录规则不统一，无法根据名称进行筛选???
         testcase_dir=`ls $testresult_absdir`
         testcase_absdir=$testresult_absdir/$testcase_dir
-        echo 测试用例:$TestCase 的测试结果文件所在目录为:[$testcase_absdir]
+        echo --------------------------------------------------------------------------------   
+        echo 测试用例:$TestCase 的测试结果文件所在目录为:
+        echo [$testcase_absdir]
         echo --------------------------------------------------------------------------------   
       
 #        testcase_file=`ls $testcase_absdir | grep ^$TestName`

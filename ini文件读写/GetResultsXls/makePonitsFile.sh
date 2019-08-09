@@ -71,8 +71,27 @@ case $TestCase in
     ;;
 
 "stream")
+    echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
+    testcase_file=`ls $TestCase_absdir`
+    echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+    echo 测试用例:$TestCase 的单核测试结果文件内容为:
+    grep -A 5 "Function" $TestCase_absdir/stream1* | tee "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt"
+
+    echo 测试用例:$TestCase 的多核测试结果文件内容为:
+    grep -A 5 "Function" $TestCase_absdir/stream4* |tee "$TestCase_absdir/Points_${TestCase}_ncore_${Node_num}.txt"
+
+    echo --------------------------------------------------------------------------------
+    \cp "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt" $destPath -f || echo copy failed!
+    \cp "$TestCase_absdir/Points_${TestCase}_ncore_${Node_num}.txt" $destPath -f || echo copy failed!
+
+    testcase_pointsFile_1core="$curPointsIniDir/${TestCase}_1core.ini"
+    \cp $testcase_pointsFile_1core $destPath/${TestCase}_1core_${Node_num}.ini -f
+
+    testcase_pointsFile_ncore="$curPointsIniDir/${TestCase}_ncore.ini"
+    \cp $testcase_pointsFile_ncore $destPath/${TestCase}_ncore_${Node_num}.ini -f
+    echo --------------------------------------------------------------------------------
     ;;
 
 "UnixBench")
