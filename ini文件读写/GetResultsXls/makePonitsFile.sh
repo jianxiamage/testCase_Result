@@ -105,12 +105,41 @@ case $TestCase in
 
     testcase_pointsFile_ncore="$curPointsIniDir/${TestCase}_ncore.ini"
     \cp $testcase_pointsFile_ncore $destPath/${TestCase}_ncore_${Node_num}.ini -f
-    echo --------------------------------------------------------------------------------
+    #echo --------------------------------------------------------------------------------
     ;;
 
 "UnixBench")
+    echo --------------------------------------------------------------------------------
     cmdStr="The current test case is $TestCase."
     echo $cmdStr
+    testcase_file=`ls $TestCase_absdir`
+    echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
+    echo 测试用例:$TestCase 的单核测试结果文件内容为:
+    echo --------------------------------------------------------------------------------
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_1* | tee "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt"
+
+    echo 测试用例:$TestCase 的4核测试结果文件内容为:
+    echo --------------------------------------------------------------------------------
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_4* | tee "$TestCase_absdir/Points_${TestCase}_4core_${Node_num}.txt"
+
+    echo 测试用例:$TestCase 的8核测试结果文件内容为:
+    echo --------------------------------------------------------------------------------
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_8* | tee "$TestCase_absdir/Points_${TestCase}_8core_${Node_num}.txt"
+
+    #--------------------------------------------------------------------------------
+    \cp "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt" $destPath -f || echo copy failed!
+    \cp "$TestCase_absdir/Points_${TestCase}_4core_${Node_num}.txt" $destPath -f || echo copy failed!
+    \cp "$TestCase_absdir/Points_${TestCase}_8core_${Node_num}.txt" $destPath -f || echo copy failed!
+
+    testcase_pointsFile_1core="$curPointsIniDir/${TestCase}_1core.ini"
+    \cp $testcase_pointsFile_1core $destPath/${TestCase}_1core_${Node_num}.ini -f
+
+    testcase_pointsFile_4core="$curPointsIniDir/${TestCase}_4core.ini"
+    \cp $testcase_pointsFile_4core $destPath/${TestCase}_4core_${Node_num}.ini -f
+
+    testcase_pointsFile_8core="$curPointsIniDir/${TestCase}_8core.ini"
+    \cp $testcase_pointsFile_8core $destPath/${TestCase}_8core_${Node_num}.ini -f
+    #echo --------------------------------------------------------------------------------
     ;;
 
 "spec2000-1core")
