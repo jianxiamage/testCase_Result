@@ -61,7 +61,7 @@ def setPoint_Double_Precision(TestType,Platform,TestCase,NodeNum,keyName,keyValu
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -89,7 +89,7 @@ def setPoint_Execl_Throughput(TestType,Platform,TestCase,NodeNum,keyName,keyValu
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -116,7 +116,7 @@ def setPoint_File_Copy_1024(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -143,7 +143,7 @@ def setPoint_File_Copy_256(TestType,Platform,TestCase,NodeNum,keyName,keyValue,m
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -171,7 +171,7 @@ def setPoint_File_Copy_4096(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -198,7 +198,7 @@ def setPoint_Pipe_Throughput(TestType,Platform,TestCase,NodeNum,keyName,keyValue
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -225,7 +225,7 @@ def setPoint_Pipe_based_Context(TestType,Platform,TestCase,NodeNum,keyName,keyVa
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -252,7 +252,7 @@ def setPoint_Process_Creation(TestType,Platform,TestCase,NodeNum,keyName,keyValu
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -279,7 +279,7 @@ def setPoint_sh_1concurrent(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -306,7 +306,7 @@ def setPoint_sh_8concurrent(TestType,Platform,TestCase,NodeNum,keyName,keyValue,
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -333,7 +333,7 @@ def setPoint_Sys_Call_Overhead(TestType,Platform,TestCase,NodeNum,keyName,keyVal
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
@@ -360,7 +360,7 @@ def setPoint_System_Benchmarks(TestType,Platform,TestCase,NodeNum,keyName,keyVal
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))

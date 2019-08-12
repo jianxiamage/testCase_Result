@@ -6,6 +6,13 @@ import os
 import traceback
 import ConfigParser
 
+#防止自动将ini文件中的键名转换成小写
+class myconf(ConfigParser.ConfigParser):
+    def __init__(self,defaults=None):
+        ConfigParser.ConfigParser.__init__(self,defaults=None)
+    def optionxform(self, optionstr):
+        return optionstr
+
 #-------------------------------------------------
 #存在一个测试项含有多个测试结果文件的情况
 #例如spec2000测试，无论单核测试还是多核测试均含有浮点和整型两种文件
@@ -32,7 +39,7 @@ def setPoint(TestType,Platform,TestCase,NodeNum,keyName,keyValue,mode):
     print('-----------------------------------')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))

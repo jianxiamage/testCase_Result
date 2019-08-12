@@ -15,7 +15,7 @@ Node_num="$4"
 #----------------------------------------------------------------------------------------
 resultsPath='/data'
 PointsPath='Points_Files'
-testMode='1core'
+testMode='8core'
 #----------------------------------------------------------------------------------------
 #测试结果文件(筛选内容后)地址
 destResultPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/Points_${TestCase}_${testMode}_${Node_num}.txt"

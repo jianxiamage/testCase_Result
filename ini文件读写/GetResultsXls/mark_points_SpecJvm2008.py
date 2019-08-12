@@ -6,6 +6,12 @@ import os
 import traceback
 import ConfigParser
 
+#防止自动将ini文件中的键名转换成小写
+class myconf(ConfigParser.ConfigParser):
+    def __init__(self,defaults=None):
+        ConfigParser.ConfigParser.__init__(self,defaults=None)
+    def optionxform(self, optionstr):
+        return optionstr
 
 ResultPath='/data/'
 PointsPath='Points_Files'
@@ -18,7 +24,7 @@ def setPoint(TestType,Platform,TestCase,NodeNum,keyName,keyValue):
     print('ini文件路径:')
     print(ResultIniPath)
     print('-----------------------------------')
-    config = ConfigParser.ConfigParser()
+    config = myconf()
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(ResultIniPath))
