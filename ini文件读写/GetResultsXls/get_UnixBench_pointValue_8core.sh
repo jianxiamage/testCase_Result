@@ -49,17 +49,17 @@ function get_Dhrystone()
   #key_val=${key_val_str%%\**}
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $6}'`
   echo key_val_1: $key_val_1
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $7}'`
   echo key_val_2: $key_val_2
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $8}'`
   echo key_val_3: $key_val_3
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 
 }
@@ -72,15 +72,15 @@ function get_Double_Precision()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $3}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Double_Precision("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Double_Precision("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $4}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Double_Precision("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Double_Precision("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Double_Precision("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Double_Precision("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 
 }
@@ -93,15 +93,15 @@ function get_Execl_Throughput()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $3}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Execl_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Execl_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $4}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Execl_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Execl_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Execl_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Execl_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 
 }
@@ -114,15 +114,15 @@ function get_File_Copy_1024()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $7}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_1024("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_1024("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $8}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_1024("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_1024("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $9}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_1024("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_1024("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -134,15 +134,15 @@ function get_File_Copy_256()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $7}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_256("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_256("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $8}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_256("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_256("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $9}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_256("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_256("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -154,15 +154,15 @@ function get_File_Copy_4096()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $7}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_4096("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_4096("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $8}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_4096("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_4096("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $9}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_File_Copy_4096("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_File_Copy_4096("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -175,15 +175,15 @@ function get_Pipe_Throughput()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $3}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Pipe_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Pipe_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $4}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Pipe_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Pipe_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Pipe_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Pipe_Throughput("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -194,15 +194,15 @@ function get_Pipe_based_Context()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $4}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Pipe_based_Context("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Pipe_based_Context("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Pipe_based_Context("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Pipe_based_Context("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $6}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Pipe_based_Context("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Pipe_based_Context("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -214,15 +214,15 @@ function get_Process_Creation()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $3}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Process_Creation("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Process_Creation("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $4}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Process_Creation("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Process_Creation("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Process_Creation("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Process_Creation("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -234,15 +234,15 @@ function get_sh_1concurrent()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_sh_1concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_sh_1concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $6}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_sh_1concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_sh_1concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $7}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_sh_1concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_sh_1concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -254,15 +254,15 @@ function get_sh_8concurrent()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_sh_8concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_sh_8concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $6}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_sh_8concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_sh_8concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $7}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_sh_8concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_sh_8concurrent("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -273,15 +273,15 @@ function get_Sys_Call_Overhead()
 
   key_name_1='BASELINE'
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $4}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Sys_Call_Overhead("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Sys_Call_Overhead("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Sys_Call_Overhead("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Sys_Call_Overhead("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $6}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_Sys_Call_Overhead("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Sys_Call_Overhead("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 }
 
@@ -293,7 +293,7 @@ function get_System_Benchmarks()
 
   key_name='Score'
   key_val=`cat  $destResultPath | grep "$searchStr" | awk '{print $5}'`
-  python -c 'import mark_points_UnixBench_1core; mark_points_UnixBench_1core.setPoint_System_Benchmarks("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name'","'$key_val'","'$testMode'")'
+  python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_System_Benchmarks("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name'","'$key_val'","'$testMode'")'
 
 
 }
