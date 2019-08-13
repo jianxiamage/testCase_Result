@@ -14,6 +14,38 @@ booksheet = workbook.add_sheet('Sheet 1', cell_overwrite_ok=True)
 
 IPListIniFile='iozone_1.ini'
 
+
+def write_xls(iniFile,xlsFile,colNum):
+
+    config = ConfigParser.ConfigParser()
+    #print os.getcwd() #获取当前工作目录路径
+
+    config.readfp(open(iniFile))
+
+    i = 0
+    j = 1
+
+    dictionary = {}
+    for section in config.sections():
+        dictionary[section] = {}
+        print('---------------------------------')
+        print section
+        print('---------------------------------')
+
+        for option in config.options(section):
+            dictionary[section][option] = config.get(section, option)
+            #print dictionary[section][option]
+            print 'option:%s,value:%s' %(option,dictionary[section][option])
+            value = dictionary[section][option]
+            booksheet.write(j,colNum,value)
+            j = j + 1
+
+        i = i + 1
+
+    workbook.save(xlsFile)
+
+
+
 def getResult():
 
     ip_list_path =  IPListIniFile
@@ -32,15 +64,21 @@ def getResult():
 #首先插入表头,包括每一行的测试字段以及三个测试节点
     listglob = []
     curDir = os.getcwd() #获取当前工作目录路径
-    findFile =  'iozone*.ini'
+    findFile = 'iozone*.ini'
     listglob = glob.glob(os.path.join(curDir,findFile))
     listglob.sort()
     #path = unicode(listglob[1],'utf-8')
     print listglob
     print('---------------------------------')
 
-    i = 0
-    j = 0
+    #初始化Excel表头
+    booksheet.write(0,0,'TestItem')
+    booksheet.write(0,1,'Node-1')
+    booksheet.write(0,2,'Node-2')
+    booksheet.write(0,3,'Node-3')
+
+    i = 0 #section
+    j = 0 #key
 
     dictionary = {}
     for section in config.sections():
@@ -50,11 +88,14 @@ def getResult():
         print('---------------------------------')
 
         for option in config.options(section):
+            print('---------------------------------')
+            print option
+            print('---------------------------------')
             dictionary[section][option] = config.get(section, option)
             #print dictionary[section][option]
             print 'option:%s,value:%s' %(option,dictionary[section][option])
-            booksheet.write(j,0,j)
             j = j + 1
+            booksheet.write(j,0,option)
 
         i = i + 1
 
@@ -62,26 +103,31 @@ def getResult():
 
 #-------------------------------------------------------------------------------
 
-    i = 0
-    j = 0
+#    i = 0
+#    j = 1
+#
+#    dictionary = {}
+#    for section in config.sections():
+#        dictionary[section] = {}
+#        print('---------------------------------') 
+#        print section
+#        print('---------------------------------') 
+#
+#        for option in config.options(section):
+#            dictionary[section][option] = config.get(section, option)
+#            #print dictionary[section][option]
+#            print 'option:%s,value:%s' %(option,dictionary[section][option])
+#            value = dictionary[section][option]
+#            booksheet.write(j,1,value)
+#            j = j + 1
+# 
+#        i = i + 1
+#
+#    workbook.save('example.xls')
 
-    dictionary = {}
-    for section in config.sections():
-        dictionary[section] = {}
-        print('---------------------------------') 
-        print section
-        print('---------------------------------') 
-
-        for option in config.options(section):
-            dictionary[section][option] = config.get(section, option)
-            #print dictionary[section][option]
-            print 'option:%s,value:%s' %(option,dictionary[section][option])
-            booksheet.write(j,0,j)
-            j = j + 1
-         
-        i = i + 1
-
-    workbook.save('example.xls')
+    write_xls('iozone_1.ini','example.xls',1)
+    write_xls('iozone_2.ini','example.xls',2)
+    write_xls('iozone_3.ini','example.xls',3)
 
     retCode = 0
     return retCode

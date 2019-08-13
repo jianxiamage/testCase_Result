@@ -116,29 +116,46 @@ case $TestCase in
     echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
     echo 测试用例:$TestCase 的单核测试结果文件内容为:
     echo --------------------------------------------------------------------------------
-    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_1* | tee "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt"
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_1_* | tee "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt"
+
+    echo 测试用例:$TestCase 的2核测试结果文件内容为:
+    echo --------------------------------------------------------------------------------
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_2_* | tee "$TestCase_absdir/Points_${TestCase}_2core_${Node_num}.txt"
 
     echo 测试用例:$TestCase 的4核测试结果文件内容为:
     echo --------------------------------------------------------------------------------
-    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_4* | tee "$TestCase_absdir/Points_${TestCase}_4core_${Node_num}.txt"
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_4_* | tee "$TestCase_absdir/Points_${TestCase}_4core_${Node_num}.txt"
 
     echo 测试用例:$TestCase 的8核测试结果文件内容为:
     echo --------------------------------------------------------------------------------
-    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_8* | tee "$TestCase_absdir/Points_${TestCase}_8core_${Node_num}.txt"
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_8_* | tee "$TestCase_absdir/Points_${TestCase}_8core_${Node_num}.txt"
+
+    echo 测试用例:$TestCase 的16核测试结果文件内容为:
+    echo --------------------------------------------------------------------------------
+    grep -A 15 "System Benchmarks Index Values" $TestCase_absdir/Unixbench_16_* | tee "$TestCase_absdir/Points_${TestCase}_16core_${Node_num}.txt"
+
 
     #--------------------------------------------------------------------------------
     \cp "$TestCase_absdir/Points_${TestCase}_1core_${Node_num}.txt" $destPath -f || echo copy failed!
+    \cp "$TestCase_absdir/Points_${TestCase}_2core_${Node_num}.txt" $destPath -f || echo copy failed!
     \cp "$TestCase_absdir/Points_${TestCase}_4core_${Node_num}.txt" $destPath -f || echo copy failed!
     \cp "$TestCase_absdir/Points_${TestCase}_8core_${Node_num}.txt" $destPath -f || echo copy failed!
+    \cp "$TestCase_absdir/Points_${TestCase}_16core_${Node_num}.txt" $destPath -f || echo copy failed!
 
     testcase_pointsFile_1core="$curPointsIniDir/${TestCase}_1core.ini"
     \cp $testcase_pointsFile_1core $destPath/${TestCase}_1core_${Node_num}.ini -f
+
+    testcase_pointsFile_2core="$curPointsIniDir/${TestCase}_2core.ini"
+    \cp $testcase_pointsFile_2core $destPath/${TestCase}_2core_${Node_num}.ini -f
 
     testcase_pointsFile_4core="$curPointsIniDir/${TestCase}_4core.ini"
     \cp $testcase_pointsFile_4core $destPath/${TestCase}_4core_${Node_num}.ini -f
 
     testcase_pointsFile_8core="$curPointsIniDir/${TestCase}_8core.ini"
     \cp $testcase_pointsFile_8core $destPath/${TestCase}_8core_${Node_num}.ini -f
+
+    testcase_pointsFile_16core="$curPointsIniDir/${TestCase}_16core.ini"
+    \cp $testcase_pointsFile_16core $destPath/${TestCase}_16core_${Node_num}.ini -f
     #echo --------------------------------------------------------------------------------
     ;;
 
