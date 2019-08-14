@@ -52,6 +52,8 @@ def init_xls(iniFile,xlsFile):
     #-------------------------------------------------------------------------------
     #首先插入表头,包括每一行的测试字段以及三个测试节点
 
+    booksheet.col(0).width = 4000
+
     #初始化Excel表头
     booksheet.write(0,0,'TestItem')
     booksheet.write(0,1,'Node-1')

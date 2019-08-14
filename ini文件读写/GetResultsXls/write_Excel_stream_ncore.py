@@ -90,7 +90,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
 
     print count
     IniPath = str(curPointsPath) + '/' + str(TestCase) + '_' + str(mode) + '.ini' 
-    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(Platform) + '_' + str(TestType) + '_' + str(mode) + '.xls' 
+    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' + str(mode) + '_' + str(Platform) + '_' + str(TestType)  + '.xls' 
     print IniPath
     print ExcelPath
     init_xls(IniPath,ExcelPath)

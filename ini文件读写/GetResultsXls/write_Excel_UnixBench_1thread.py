@@ -10,7 +10,7 @@ import glob
 import xlwt
 
 workbook = xlwt.Workbook(encoding='utf-8')
-booksheet = workbook.add_sheet('spec2000_ncore_CFP', cell_overwrite_ok=True)
+booksheet = workbook.add_sheet('UnixBench_1thread', cell_overwrite_ok=True)
 
 ResultPath='/data/'
 PointsPath='Points_Files'
@@ -52,8 +52,6 @@ def init_xls(iniFile,xlsFile):
     #-------------------------------------------------------------------------------
     #首先插入表头,包括每一行的测试字段以及三个测试节点
 
-    booksheet.col(0).width = 4000
-
     #初始化Excel表头
     booksheet.write(0,0,'TestItem')
     booksheet.write(0,1,'Node-1')
@@ -92,7 +90,7 @@ def writeResult(TestType,Platform,TestCase,mode,count):
 
     print count
     IniPath = str(curPointsPath) + '/' + str(TestCase) + '_' + str(mode) + '.ini' 
-    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) +  '_' + str(Platform) + '_' + str(TestType) + '.xls' 
+    ExcelPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' + str(mode) + '_' + str(Platform) + '_' + str(TestType)  + '.xls' 
     print IniPath
     print ExcelPath
     init_xls(IniPath,ExcelPath)
