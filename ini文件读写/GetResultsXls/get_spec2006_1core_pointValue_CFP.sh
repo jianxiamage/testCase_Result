@@ -213,7 +213,7 @@ function get_SPECfp_base2006()
 {
 
   key_name='SPECfp_base2006'
-  key_val=`cat  $destResultPath | grep $key_name |awk '{print $2}'`
+  key_val=`cat  $destResultPath | grep $key_name |awk '{print $3}'`
   python -c 'import mark_points_spec2006_1core; mark_points_spec2006_1core.setPoint("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name'","'$key_val'","'$testMode'")'
 
 }

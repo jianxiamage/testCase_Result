@@ -187,10 +187,10 @@ function get_301_apsi()
 }
 
 
-function get_SPECfp_base2000()
+function get_SPECfp_rate_base2000()
 {
 
-  key_name='SPECfp_base2000'
+  key_name='SPECfp_rate_base2000'
   key_val=`cat  $destResultPath | grep $key_name |awk '{print $2}'`
   #key_val=${key_val_str%%\**}
   python -c 'import mark_points_spec2000_ncore; mark_points_spec2000_ncore.setPoint("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name'","'$key_val'","'$testMode'")'
@@ -226,5 +226,4 @@ get_200_sixtrack
 
 get_301_apsi
 
-get_SPECfp_base2000
-
+get_SPECfp_rate_base2000

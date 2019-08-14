@@ -50,7 +50,9 @@ case $TestCase in
     #echo 测试用例:$TestCase 的测试结果文件为:[$testcase_file]
     echo $testcase_file
     testcase_absfile=$TestCase_absdir/$testcase_file
-    echo 测试用例:$TestCase 的测试结果文件为:[$testcase_absfile]
+    echo 测试用例:$TestCase 的测试结果文件为:
+    echo [$testcase_absfile]
+    echo --------------------------------------------------------------------------------
     echo 测试用例:$TestCase 的测试结果文件内容为:
     cat $testcase_absfile |tail -n 5 |tee "$TestCase_absdir/Points_${TestCase}_${Node_num}.txt"
     echo --------------------------------------------------------------------------------
@@ -271,13 +273,12 @@ case $TestCase in
     testcase_pointsFile=$curPointsIniDir/$TestCase.ini
     \cp $testcase_pointsFile $destPath/${TestCase}_${Node_num}.ini -f
     echo --------------------------------------------------------------------------------
-
     ;;
-
 
 *)
     cmdStr="Error:UnSupport this Testcase:$Testcase.Please check it!"
     echo $cmdStr
+    exit 1
     ;;
 esac
 
