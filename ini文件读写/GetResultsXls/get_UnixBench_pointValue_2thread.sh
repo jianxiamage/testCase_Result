@@ -15,7 +15,7 @@ Node_num="$4"
 #----------------------------------------------------------------------------------------
 resultsPath='/data'
 PointsPath='Points_Files'
-testMode='2core'
+testMode='2thread'
 #----------------------------------------------------------------------------------------
 #测试结果文件(筛选内容后)地址
 destResultPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/Points_${TestCase}_${testMode}_${Node_num}.txt"
@@ -288,7 +288,7 @@ function get_Sys_Call_Overhead()
 
 function get_System_Benchmarks()
 {
-  #searchStr="System Benchmarks Index Score"
+  #searchStr="System Benchmarks Index Sthread"
   searchStr="System\ Benchmarks\ Index\ Score"
 
   key_name='Score'
