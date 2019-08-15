@@ -60,6 +60,6 @@ fi
 
 echo -------------------------------------------------------------
 
-#读取iozone测试结果情况，并将本组测试结果跑分情况写入Excel文件
+#读取测试结果情况，并将本组测试结果跑分情况写入Excel文件
 
 python -c 'import write_Excel_UnixBench_4thread; write_Excel_UnixBench_4thread.writeResult("'$TestType'","'$Platform'","'$TestCase'","'$TestMode'","'$Node_count'")'
