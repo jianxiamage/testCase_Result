@@ -35,7 +35,6 @@ def write_xls(iniFile,xlsFile,row_start,col_start):
     i = 0
     j = 0
 
-
     dictionary = {}
     for section in config.sections():
         dictionary[section] = {}
@@ -44,16 +43,18 @@ def write_xls(iniFile,xlsFile,row_start,col_start):
         print('---------------------------------')
         xls_row = i + 2
         #booksheet.write(xls_row,0,section)
-
+        
+        #每次循环新的section都要将列号恢复，因为如果不恢复列号，写入内容会向右偏移
+        j = 0
         for option in config.options(section):
             dictionary[section][option] = config.get(section, option)
             #print dictionary[section][option]
             print 'option:%s,value:%s' %(option,dictionary[section][option])
             value = dictionary[section][option]
-            #booksheet.write(j,0,option)
+            value_float = float(value)
             row_num = i + row_start
             col_num = j + col_start
-            booksheet.write(row_num,col_num,value)
+            booksheet.write(row_num,col_num,value_float)
 
             j = j + 1
 
@@ -88,6 +89,11 @@ def init_xls(iniFile,xlsFile):
     #print os.getcwd() #获取当前工作目录路径
 
     config.readfp(open(iniFile))
+     
+    sec_len = len(config.sections())
+    print('---------------------------------')
+    print sec_len
+    print('---------------------------------')
 
     i = 0
     j = 0
@@ -121,6 +127,70 @@ def init_xls(iniFile,xlsFile):
 
     workbook.save(xlsFile)
 
+def end_xls(iniFile,xlsFile,row_start,col_start):
+
+    #-------------------------------------------------------------------------------
+    #首先插入表头,包括每一行的测试字段以及三个测试节点
+
+    booksheet.col(0).width = 9000
+
+    alignment = xlwt.Alignment() # Create Alignment
+    alignment.horz = xlwt.Alignment.HORZ_CENTER # May be: HORZ_GENERAL, HORZ_LEFT, HORZ_CENTER, HORZ_RIGHT, HORZ_FILLED, HORZ_JUSTIFIED, HORZ_CENTER_ACROSS_SEL, HORZ_DISTRIBUTED
+    alignment.vert = xlwt.Alignment.VERT_CENTER # May be: VERT_TOP, VERT_CENTER, VERT_BOTTOM, VERT_JUSTIFIED, VERT_DISTRIBUTED
+    style = xlwt.XFStyle() # Create Style
+    style.alignment = alignment # Add Alignment to Style
+
+    #config = ConfigParser.ConfigParser()
+    config = myconf()
+    #print os.getcwd() #获取当前工作目录路径
+
+    config.readfp(open(iniFile))
+
+    sec_len = len(config.sections())
+    print('---------------------------------')
+    print sec_len
+    print('---------------------------------')
+
+    real_start_row = int(row_start) + sec_len - 1
+
+    i = 0
+    j = 0
+
+    curOpt_len = 0
+
+    dictionary = {}
+    for section in config.sections():
+        dictionary[section] = {}
+        print('---------------------------------')
+        print section
+        print('---------------------------------')
+        xls_row = i + 2
+        #booksheet.write(xls_row,0,section)
+
+        #每次循环新的section都要将列号恢复，因为如果不恢复列号，写入内容会向右偏移
+        j = 0
+        curOpt_len = 0
+        for option in config.options(section):
+            curOpt_len = len(config.options(section))
+            dictionary[section][option] = config.get(section, option)
+            #print dictionary[section][option]
+            print 'option:%s,value:%s' %(option,dictionary[section][option])
+            value = dictionary[section][option]
+            value_float = float(value)
+            row_num = real_start_row
+            col_num = j + col_start
+            merge_str = str(col_num)
+            if i == (sec_len - 1):
+               booksheet.write_merge(real_start_row, real_start_row, col_num, col_num + curOpt_len + 1, merge_str) #col_num + curOpt_len + 1,加1的原因是需要排除当前列col_num
+               booksheet.write(real_start_row,col_num,value_float,style)
+               #booksheet.write(row_num,col_num,value_float)
+               #break
+
+            j = j + 1
+
+        i = i + 1
+
+    workbook.save(xlsFile)
 
 def writeResult(TestType,Platform,TestCase,mode,count):
 
@@ -145,6 +215,16 @@ def writeResult(TestType,Platform,TestCase,mode,count):
        print col_start_tag
        print('****************************************************')
        write_xls(ResultIniPath,ExcelPath,2,col_start_tag)
+
+    for i in range(1,countNum):
+       print '第%d个节点' %(i)
+       ResultIniPath = str(ResultPath) + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) +  '_' + str(mode) + '_' + str(i) + '.ini'
+       print ResultIniPath
+       col_start_tag = 1 + (int(count))*(int(i)-1)
+       print('****************************************************')
+       print col_start_tag
+       print('****************************************************')
+       end_xls(ResultIniPath,ExcelPath,2,col_start_tag)
 
 
     #ResultIniPath = ResultPath + str(TestType) + '/' + str(Platform) + '/' + str(TestCase) + '/' + str(PointsPath) + '/' + str(TestCase) + '_' +  str(1) + '.ini' 
