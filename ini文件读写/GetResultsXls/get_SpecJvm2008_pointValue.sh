@@ -97,7 +97,7 @@ function get_scimark_large()
 function get_scimark_small()
 {
 
-  key_name='scimark.large'
+  key_name='scimark.small'
   key_val=`cat  $destResultPath | grep $key_name |awk '{print $2}'`
   python -c 'import mark_points_SpecJvm2008; mark_points_SpecJvm2008.setPoint("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name'","'$key_val'")'
 
@@ -144,8 +144,9 @@ function get_xml()
 function get_Composite_result()
 {
 
-  key_name='Composite'
-  key_val=`cat  $destResultPath | grep $key_name |awk '{print $3}'`
+  search_str="Composite\ result"
+  key_name='Composite-result'
+  key_val=`cat  $destResultPath | grep "$search_str" |awk '{print $3}'`
   python -c 'import mark_points_SpecJvm2008; mark_points_SpecJvm2008.setPoint("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name'","'$key_val'")'
 
 }

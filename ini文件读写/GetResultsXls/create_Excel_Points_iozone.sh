@@ -36,10 +36,29 @@ fi
 #fi
 
 echo -------------------------------------------------------------
+
+#目前测试节点个数规定：每个测试小组有三个节点，node_count.cfg中的数字3代表三个节点
+count_nodes=`cat node_count.cfg` || { echo "File:node_count.cfg is not existed!";exit 1;}
+
 ls -l $destResultPath/$TestCase*.ini
+
+#若出错，说明没有找到相关ini文件，程序退出
+if [ $? -ne 0 ];
+then
+  echo "No $TestMode files exists!Please check it!"
+  exit 1
+fi
 
 Node_count=`ls $destResultPath/$TestCase*.ini | wc -l`
 echo Node_count is:$Node_count
+
+#若当前查找到的ini文件数不是node_count.cfg的设定值，则失败退出
+if [ $Node_count -ne $count_nodes ];
+then
+  echo "$TestMode file count is not $count_nodes!Please check it!"
+  exit 1
+fi
+
 echo -------------------------------------------------------------
 
 #读取iozone测试结果情况，并将本组测试结果跑分情况写入Excel文件

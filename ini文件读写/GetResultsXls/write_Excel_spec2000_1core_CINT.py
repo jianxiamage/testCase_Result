@@ -19,6 +19,12 @@ curPointsPath='ini_Points'
 
 def write_xls(iniFile,xlsFile,colNum):
 
+    alignment = xlwt.Alignment() # Create Alignment
+    alignment.horz = xlwt.Alignment.HORZ_LEFT   # May be: HORZ_GENERAL, HORZ_LEFT, HORZ_CENTER, HORZ_RIGHT, HORZ_FILLED, HORZ_JUSTIFIED, HORZ_CENTER_ACROSS_SEL, HORZ_DISTRIBUTED
+    alignment.vert = xlwt.Alignment.VERT_CENTER # May be: VERT_TOP, VERT_CENTER, VERT_BOTTOM, VERT_JUSTIFIED, VERT_DISTRIBUTED
+    style = xlwt.XFStyle() # Create Style
+    style.alignment = alignment # Add Alignment to Style
+
     config = ConfigParser.ConfigParser()
     #print os.getcwd() #获取当前工作目录路径
 
@@ -39,8 +45,8 @@ def write_xls(iniFile,xlsFile,colNum):
             #print dictionary[section][option]
             print 'option:%s,value:%s' %(option,dictionary[section][option])
             value = dictionary[section][option]
-            value_int = float(value)
-            booksheet.write(j,colNum,value_int)
+            value_float = float(value)
+            booksheet.write(j,colNum,value_float,style)
             j = j + 1
 
         i = i + 1
@@ -52,7 +58,7 @@ def init_xls(iniFile,xlsFile):
     #-------------------------------------------------------------------------------
     #首先插入表头,包括每一行的测试字段以及三个测试节点
 
-    booksheet.col(0).width = 4000
+    booksheet.col(0).width = 5000
 
     #初始化Excel表头
     booksheet.write(0,0,'TestItem')
