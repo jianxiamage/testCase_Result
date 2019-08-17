@@ -26,13 +26,13 @@ destIniPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/${Test
 
 if [ ! -s $destResultPath ];
 then
-  echo Error! [$destResultPath] not exited!Please check it!
+  echo Error! [$destResultPath] not existed!Please check it!
   exit 1
 fi
 
 if [ ! -s $destIniPath ];
 then
-  echo Error! [$destIniPath] not exited!Please check it!
+  echo Error! [$destIniPath] not existed!Please check it!
   exit 1
 fi
 
@@ -42,23 +42,22 @@ function get_Dhrystone()
 {
   #searchStr="Dhrystone 2 using register variables"
   searchStr="Dhrystone\ 2\ using\ register\ variables"
-  #searchStr="Dhrystone\ "
   key_name_1='BASELINE'
   #key_val=`cat  $destResultPath |awk 'NR==2'|awk '{print $4}'`
   #key_val_str=`cat  $destResultPath | grep $key_name |awk '{print $4}'`
   #key_val=${key_val_str%%\**}
   key_val_1=`cat  $destResultPath | grep "$searchStr" | awk '{print $6}'`
-  echo key_val_1: $key_val_1
+  #echo key_val_1: $key_val_1
   python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_1'","'$key_val_1'","'$testMode'")'
 
   key_name_2='RESULT'
   key_val_2=`cat  $destResultPath | grep "$searchStr" | awk '{print $7}'`
-  echo key_val_2: $key_val_2
+  #echo key_val_2: $key_val_2
   python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_2'","'$key_val_2'","'$testMode'")'
 
   key_name_3='INDEX'
   key_val_3=`cat  $destResultPath | grep "$searchStr" | awk '{print $8}'`
-  echo key_val_3: $key_val_3
+  #echo key_val_3: $key_val_3
   python -c 'import mark_points_UnixBench; mark_points_UnixBench.setPoint_Dhrystone("'$TestType'","'$Platform'","'$TestCase'","'$Node_num'","'$key_name_3'","'$key_val_3'","'$testMode'")'
 
 

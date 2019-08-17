@@ -6,11 +6,7 @@ ServerUser='loongson-test'
 ServerPass='loongson'
 #--------------------------------------------
 
-ServerTestDir=autotest_result
-#TestName="stressapp"
-#TestGroupNum=2
-okfile='ok_file.txt'
-errfile='err_file.txt'
+ServerTestDir='autotest_result'
 #--------------------------------------------
 #items_count=3
 #--------------------------------------------

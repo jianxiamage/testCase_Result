@@ -6,9 +6,7 @@ ServerUser='loongson-test'
 ServerPass='loongson'
 #--------------------------------------------
 
-ServerTestDir=autotest_result
-#TestName="stressapp"
-#TestGroupNum=2
+ServerTestDir='autotest_result'
 okfile='ok_file.txt'
 errfile='err_file.txt'
 #--------------------------------------------
@@ -30,7 +28,7 @@ tmpipList_TestCase_File="${ipList_TestCase_File}.tmp"
 #--------------------------------------------
 
 #testcaseDir="7A"
-testcaseDir="${TestType}/${Platform}"
+testcaseDir="${TestType}/${Platform}/${TestCase}"
 
 mkdir -p $testcaseDir
 testcase_ip_path="$testcaseDir/$ipList_TestCase_File"
@@ -105,10 +103,9 @@ writeIPFile $TestCase
 
 
 #Delete the space lines and comment lines
-sed '/^#.*\|^[[:space:]]*$/d' $testcase_ip_path> $testcase_ip_path_tmp
+sed '/^#.*\|^[[:space:]]*$/d' $testcase_ip_path > $testcase_ip_path_tmp
 
 
-#check_result stressapp 
 check_result $TestCase
 
 rm -rf $testcase_ip_path_tmp

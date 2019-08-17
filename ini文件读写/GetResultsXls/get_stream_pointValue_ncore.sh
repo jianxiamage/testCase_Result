@@ -26,13 +26,13 @@ destIniPath="${resultsPath}/${TestType}/${Platform}/$TestCase/$PointsPath/${Test
 
 if [ ! -s $destResultPath ];
 then
-  echo Error! [$destResultPath] not exited!Please check it!
+  echo Error! [$destResultPath] not existed!Please check it!
   exit 1
 fi
 
 if [ ! -s $destIniPath ];
 then
-  echo Error! [$destIniPath] not exited!Please check it!
+  echo Error! [$destIniPath] not existed!Please check it!
   exit 1
 fi
 
