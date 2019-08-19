@@ -3,7 +3,6 @@
 #/data/TestResults.ini
 
 srcResultFile='TestResults.ini'
-IPListFile='ip_list.ini'
 
 ResultPath='/data'
 ResultIniFile=$srcResultFile
@@ -31,9 +30,7 @@ for item_type in ${TestType[@]}; do
     destPath="${ResultPath}/${item_type}/${item_plat}"
     mkdir $destPath -p
     destResultFile="${ResultPath}/${item_type}/${item_plat}/${srcResultFile}"
-    #destIPListFile="${ResultPath}/${item_type}/${item_plat}/${IPListFile}"
     echo destResultFile:$destResultFile
-    #echo destIPListFile:$destIPListFile
  
     \cp $srcResultFile $destResultFile -f
 

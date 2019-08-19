@@ -35,7 +35,7 @@ sh set_result_tag.sh $TestType $Platform "scp-dir"
 sh set_result_tag.sh $TestType $Platform "lmbench"
 sh set_result_tag.sh $TestType $Platform "stream"
 sh set_result_tag.sh $TestType $Platform "UnixBench"
-sh set_result_tag.sh $TestType $Platform "stressapptest"
+sh set_result_tag.sh $TestType $Platform "stressapp"
 
 echo "***************************************************"
 
@@ -81,7 +81,7 @@ echo "***************************************************"
 echo "***************************************************"
 echo "Group [8]:set test result info to config file"
 
-sh set_result_tag.sh $TestType $Platform "scp-BigFile"
+sh set_result_tag.sh $TestType $Platform "scp-BigDir"
 
 echo "***************************************************"
 
@@ -111,7 +111,7 @@ echo "Group [15]:set test result info to config file"
 sh set_result_tag.sh $TestType $Platform "gcc"
 sh set_result_tag.sh $TestType $Platform "glibc"
 sh set_result_tag.sh $TestType $Platform "binutils"
-sh set_result_tag.sh $TestType $Platform "openssl"
+sh set_result_tag.sh $TestType $Platform "openSSL"
 sh set_result_tag.sh $TestType $Platform "SpecJvm2008"
 
 echo "***************************************************"

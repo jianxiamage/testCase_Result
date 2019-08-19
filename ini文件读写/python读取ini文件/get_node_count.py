@@ -10,9 +10,11 @@ from get_GroupNum import *
 
 ResultPath='/IPList/'
 IPListIniFile='ip_list.ini'
+IPListIniFileName='ip_list'
 
 def getSectionCount(TestType,Platform,TestCase):
 
+    #ip_list_path = ResultPath + str(TestType) + '/' + str(Platform) + '/' + IPListIniFileName + '_' + TestType + '_' + Platform + '.ini'
     ip_list_path = ResultPath + str(TestType) + '/' + str(Platform) + '/' + IPListIniFile
     config = ConfigParser.ConfigParser()
     #print os.getcwd() #获取当前工作目录路径
@@ -24,9 +26,9 @@ def getSectionCount(TestType,Platform,TestCase):
     tmp='获取的小组编号:' + Group_num
     #print tmp
     sectionName='Group'+ str(Group_num)
-    section_list=config.options(sectionName)
-    section_count=len(section_list)
-    return section_count
+    option_list=config.options(sectionName)
+    option_count=len(option_list)
+    return option_count
 
 
 if __name__=='__main__':

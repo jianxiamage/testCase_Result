@@ -10,9 +10,11 @@ from get_GroupNum import *
 
 ResultPath='/IPList/'
 IPListIniFile='ip_list.ini'
+IPListIniFileName='ip_list'
 
 def getResult(TestType,Platform,TestCase,NodeNum):
 
+    #ip_list_path = ResultPath + str(TestType) + '/' + str(Platform) + '/' + IPListIniFileName + '_' + TestType + '_' + Platform + '.ini'
     ip_list_path = ResultPath + str(TestType) + '/' + str(Platform) + '/' + IPListIniFile
     config = ConfigParser.ConfigParser()
     #print os.getcwd() #获取当前工作目录路径
